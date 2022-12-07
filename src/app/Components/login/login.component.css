@@ -22,8 +22,11 @@ a{
 }
 .example-card {
   display: flex;
+  justify-content: center;
   width: 26%;
-  background-color: #691939;
+  height: 70%;
+  border: 0.5px solid #c2185b;
+  background-color: #202124;
  
 }
 .botones{

@@ -1,7 +1,7 @@
 footer{
     bottom: 0px;
-    position: absolute;
     width: 100%;
+    position: fixed;
 }
 div{
     background-color: #3c4043;

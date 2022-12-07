@@ -8,8 +8,8 @@
 }
 .example-card {
   border-radius: 0px;
-  height: 150px;
-  color: antiquewhite;
+  height: 158px;
+  color: white;
   border-top: 0.1px solid #838588;
   border-bottom: 0.1px solid #838588;
 }
@@ -29,14 +29,26 @@
 .info1 {
   padding: 10px;
   display: flex;
-  height: 50px;
+  height: 70px;
   justify-content: space-between;
+  align-items: center;
   flex: 4 1 auto;
   border-right: 0.2px solid #838588;
 }
 .info2 {
-  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 8px;
   text-align: center;
+}
+.info2 div{
+  padding: 4px 0px;
+}
+.info1 p{
+  margin: 10px 0px;
+}
+p{
+  margin: 0%;
 }
 .conetenedorCard {
   display: flex;
