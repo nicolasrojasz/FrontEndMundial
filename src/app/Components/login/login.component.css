@@ -1,0 +1,42 @@
+
+.contenedorLogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+a{
+  text-decoration: none;
+}
+.example-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.example-card {
+  display: flex;
+  width: 26%;
+  background-color: #691939;
+ 
+}
+.botones{
+    display: flex;
+    justify-content: flex-end;
+}
+.divCardHeader{
+  text-align: center;
+  width: 100%;
+  color: white;
+  padding: 10px 0px;
+  margin-bottom: 10px;
+}
+.example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }

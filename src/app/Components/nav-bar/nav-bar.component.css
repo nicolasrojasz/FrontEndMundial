@@ -1,0 +1,40 @@
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  height: 106px;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+.LogOut{
+  font-family: arial, sans-serif;
+
+}
+.superior {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-family: arial, sans-serif;
+  font-size: 16px;
+
+}
+.titulo-back {
+  display: flex;
+  align-items: center;
+
+}
+.titulo-back span {
+  margin-left: 6px;
+}
+
+.inferior button {
+  font-size: 12px;
+  font-family: arial, sans-serif;
+  padding: 20px 20px;
+}
+.inferior button:hover{
+    border-radius: 0%;
+}

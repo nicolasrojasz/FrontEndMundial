@@ -1,0 +1,40 @@
+<div class="contenedorLogin">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div class="divCardHeader">
+        <mat-card-title>Iniciar Sesion</mat-card-title>
+        <mat-card-subtitle>Bienvenido</mat-card-subtitle>
+      </div>
+    </mat-card-header>
+
+
+    <mat-card-content>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [errorStateMatcher]="matcher" placeholder="Ex. pat@example.com" />
+
+          <mat-error *ngIf="
+              emailFormControl.hasError('email') &&
+              !emailFormControl.hasError('required')
+            ">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Contraseña</mat-label>
+          <input matNativeControl type="password" />
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+
+
+    
+    <mat-card-actions class="botones">
+      <a href="partidos"><button mat-button>INICIAR SESION</button></a>
+    </mat-card-actions>
+  </mat-card>
+</div>
