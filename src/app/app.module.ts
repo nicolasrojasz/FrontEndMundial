@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { MatProgressBarModule } from '@angular/material/progress-bar'
-import { AppComponent } from './app.component'
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component'
 import { FooterComponent } from './Components/footer/footer.component'
 
@@ -20,21 +19,23 @@ import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JugadoresComponent } from './Components/jugadores/jugadores.component';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import { PosicionesComponent } from './Components/posiciones/posiciones.component'
 const rutas: Routes = [
+  { path: '', component: PartidosComponent },
   { path: 'partidos', component: PartidosComponent },
   { path: 'login', component: LoginComponent },
   { path: 'jugadores', component: JugadoresComponent },
+  { path: 'posiciones', component: PosicionesComponent },
 ]
 
 @NgModule({
   declarations: [
-    AppComponent,
     NavBarComponent,
     FooterComponent,
     PartidosComponent,
     LoginComponent,
     JugadoresComponent,
+    PosicionesComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +54,6 @@ const rutas: Routes = [
     
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [NavBarComponent],
 })
 export class AppModule {}

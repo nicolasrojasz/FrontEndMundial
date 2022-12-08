@@ -1,6 +1,7 @@
 .contenedor {
   display: flex;
   justify-content: center;
+  height: auto;
 }
 .Subcontenedor {
   width: 55%;
@@ -10,6 +11,7 @@
   border-radius: 0px;
   height: 158px;
   color: white;
+  background-color: #202124;
   border-top: 0.1px solid #838588;
   border-bottom: 0.1px solid #838588;
 }
@@ -41,13 +43,13 @@
   padding: 0px 8px;
   text-align: center;
 }
-.info2 div{
+.info2 div {
   padding: 4px 0px;
 }
-.info1 p{
+.info1 p {
   margin: 10px 0px;
 }
-p{
+p {
   margin: 0%;
 }
 .conetenedorCard {
@@ -63,4 +65,9 @@ p{
   width: 55%;
   margin-top: 20px;
   align-items: center;
+}
+.divFooter{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }

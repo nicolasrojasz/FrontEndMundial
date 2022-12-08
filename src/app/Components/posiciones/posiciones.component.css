@@ -1,0 +1,74 @@
+.contenedor-posiciones {
+  max-width: 880px;
+  margin: 15px auto;
+  background-color: #202124;
+  padding: 15px;
+  color: #bdc1c6;
+}
+
+.contenedor-posiciones table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.contenedor-posiciones .ultimos-partidos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-posiciones .ultimos-partidos > div {
+  display: flex;
+  padding: 2px;
+}
+
+.contenedor-posiciones tbody > tr > td:not(:first-child) {
+  text-align: center;
+}
+
+.contenedor-posiciones thead > tr > th:last-child {
+  width: 130px;
+}
+
+.contenedor-posiciones thead > tr > th:first-child {
+  width: 265px;
+}
+
+.contenedor-posiciones .icon-victoria {
+  color: #3aa757;
+}
+
+.contenedor-posiciones .icon-derrota {
+  color: #ea4335;
+}
+
+.contenedor-posiciones .icon-empate {
+  color: #9aa0a6;
+}
+
+.contenedor-posiciones .icon-nojugo {
+  color: #ffffff;
+}
+
+.contenedor-posiciones .grupos {
+  margin-bottom: 15px;
+}
+
+.contenedor-posiciones .rango {
+  background-color: #424548;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.contenedor-posiciones .rango mat-icon {
+  vertical-align: bottom;
+}
+
+.contenedor-posiciones tbody > tr {
+  border-top: 1px solid #3c4043;
+}
+.divFooter{
+  padding:  0px 0px 10px 0px;
+  display: flex;
+  justify-content: center;
+}

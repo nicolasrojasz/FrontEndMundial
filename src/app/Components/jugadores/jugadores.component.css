@@ -29,3 +29,8 @@ mat-card-footer{
   color: white;
   text-align: center;
 }
+.divFooter{
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}

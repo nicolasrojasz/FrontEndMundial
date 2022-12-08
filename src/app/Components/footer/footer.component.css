@@ -1,10 +1,4 @@
 footer{
-    bottom: 0px;
-    width: 100%;
-    position: fixed;
-}
-div{
-    background-color: #3c4043;
-    color: #bdc1c6;
     text-align: center;
+    color: #bdc1c6;
 }
