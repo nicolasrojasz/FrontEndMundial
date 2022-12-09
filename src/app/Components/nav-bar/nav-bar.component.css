@@ -38,3 +38,8 @@ a{
 .inferior button:hover{
     border-radius: 0%;
 }
+@media (max-width: 600px) {
+  .toolbar {
+    display: none;
+  }
+}

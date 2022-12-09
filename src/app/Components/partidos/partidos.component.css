@@ -64,10 +64,23 @@ p {
   color: white;
   width: 55%;
   margin-top: 20px;
-  align-items: center;
 }
 .divFooter{
   margin-top: 30px;
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .Subcontenedor {
+    width: 80%;
+    flex-direction: column;
+  }
+  .containerTitulo{
+    width: auto;
+  }
+  .example-card{
+    margin-bottom: 10px;
+    border-right: 0px;
+  }
 }
