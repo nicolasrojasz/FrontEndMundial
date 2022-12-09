@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core'
 import { BrowserModule } from '@angular/platform-browser'
 import { MatProgressBarModule } from '@angular/material/progress-bar'
-import { NavBarComponent } from './Components/nav-bar/nav-bar.component'
+
+import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { FooterComponent } from './Components/footer/footer.component'
+import { EstadisticasComponent } from './Components/estadisticas/estadisticas.component';
+
 
 import { MatToolbarModule } from '@angular/material/toolbar'
 import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+
 
 import { MatCardModule } from '@angular/material/card'
 import { PartidosComponent } from './Components/partidos/partidos.component'
@@ -26,10 +30,12 @@ const rutas: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'jugadores', component: JugadoresComponent },
   { path: 'posiciones', component: PosicionesComponent },
+  { path: 'estadisticas', component: EstadisticasComponent }
 ]
 
 @NgModule({
   declarations: [
+    EstadisticasComponent,
     NavBarComponent,
     FooterComponent,
     PartidosComponent,
