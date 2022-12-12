@@ -1,4 +1,4 @@
-.contenedor-posiciones {
+.contenedor-page.posiciones {
   max-width: 880px;
   margin: 15px auto;
   background-color: #202124;
@@ -6,69 +6,94 @@
   color: #bdc1c6;
 }
 
-.contenedor-posiciones table {
+.contenedor-page.posiciones table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.contenedor-posiciones .ultimos-partidos {
+.contenedor-page.posiciones .ultimos-partidos {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.contenedor-posiciones .ultimos-partidos > div {
+.contenedor-page.posiciones .ultimos-partidos > div {
   display: flex;
   padding: 2px;
 }
 
-.contenedor-posiciones tbody > tr > td:not(:first-child) {
+.contenedor-page.posiciones tbody > tr > td:not(:first-child) {
   text-align: center;
 }
 
-.contenedor-posiciones thead > tr > th:last-child {
+.contenedor-page.posiciones thead > tr > th:last-child {
   width: 130px;
 }
 
-.contenedor-posiciones thead > tr > th:first-child {
+.contenedor-page.posiciones thead > tr > th:first-child {
   width: 265px;
 }
 
-.contenedor-posiciones .icon-victoria {
+.contenedor-page.posiciones .icon-victoria {
   color: #3aa757;
 }
 
-.contenedor-posiciones .icon-derrota {
+.contenedor-page.posiciones .icon-derrota {
   color: #ea4335;
 }
 
-.contenedor-posiciones .icon-empate {
+.contenedor-page.posiciones .icon-empate {
   color: #9aa0a6;
 }
 
-.contenedor-posiciones .icon-nojugo {
+.contenedor-page.posiciones .icon-nojugo {
   color: #ffffff;
 }
 
-.contenedor-posiciones .grupos {
+.contenedor-page.posiciones .grupos {
   margin-bottom: 15px;
 }
 
-.contenedor-posiciones .rango {
+.contenedor-page.posiciones .rango {
   background-color: #424548;
   border-radius: 5px;
   padding: 15px;
 }
 
-.contenedor-posiciones .rango mat-icon {
+.contenedor-page.posiciones .rango mat-icon {
   vertical-align: bottom;
 }
 
-.contenedor-posiciones tbody > tr {
+.contenedor-page.posiciones tbody > tr {
   border-top: 1px solid #3c4043;
 }
-.divFooter{
-  padding:  0px 0px 10px 0px;
-  display: flex;
-  justify-content: center;
+
+@media (max-width: 425px){
+  .contenedor-page.posiciones .mat-icon{
+      font-size: 14px;
+      height: auto;
+      width: auto;
+  }
+  
+  .contenedor-page.posiciones tr th{
+      font-size: 12px;
+  }
+  
+  .contenedor-page.posiciones .rango mat-icon {
+      vertical-align: middle;
+  }
+  
+}
+
+@media (max-width: 767px){
+  .contenedor-page.posiciones thead>tr>th:not(:first-child, :last-child),
+   .contenedor-page.posiciones tbody>tr>td:not(:first-child, :last-child){
+      border: 1px solid #3c4043;
+      border-top: none;
+      border-bottom: none;
+  }
+  
+   .contenedor-page.posiciones tr th{
+      font-weight: 500;
+  }
 }

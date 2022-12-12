@@ -15,13 +15,14 @@ import {MatListModule} from '@angular/material/list';
 
 
 import { MatCardModule } from '@angular/material/card'
-import { PartidosComponent } from './Components/partidos/partidos.component'
+import { JugadoresComponent } from './Components/jugadores/jugadores.component';
+import { PartidosComponent } from './Components/partidos/partidos.component';
 import { LoginComponent } from './Components/login/login.component'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { Routes, RouterModule } from '@angular/router'
 import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { JugadoresComponent } from './Components/jugadores/jugadores.component';
+
 import {MatGridListModule} from '@angular/material/grid-list';
 import { PosicionesComponent } from './Components/posiciones/posiciones.component'
 const rutas: Routes = [
@@ -36,12 +37,12 @@ const rutas: Routes = [
 @NgModule({
   declarations: [
     EstadisticasComponent,
+    PartidosComponent,
     NavBarComponent,
     FooterComponent,
-    PartidosComponent,
     LoginComponent,
-    JugadoresComponent,
-    PosicionesComponent
+    PosicionesComponent,
+    JugadoresComponent
   ],
   imports: [
     BrowserModule,

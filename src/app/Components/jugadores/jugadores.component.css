@@ -1,36 +1,47 @@
-mat-grid-tile {
-  border-radius: 6px;
+.contenedor-page.jugadores{
+  max-width: 880px;
+  margin: 15px auto;
+  background-color: #202124;
+  padding: 15px;
+  color: #bdc1c6;
 }
 
-.contenedor{
+.contenedor-page.jugadores .list-cards{
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
 }
-.contenedor div{
-  margin-top: 10px;
-  width: 70%;
-  padding: 10px;
-  background-color: #202124;
+
+.contenedor-page.jugadores .card{
+  width: 100px;
+  margin: 0 4px 8px;
+  border: 1px solid #3c4043;
+  border-radius: 8px;
+  overflow: hidden;
 }
-mat-card{
-  margin-bottom: 10px;
-  height: 100%;
-  border: 0.5px solid #838588;
+
+.contenedor-page.jugadores .imagen{
+  height: 100px;
+  width: 100px;
 }
-mat-card-content{
-  font-size: 16px;
-  margin-top: 6px;
-  color: white;
-  text-align: center;
+
+.contenedor-page.jugadores .imagen img{
+  width: 100%;
+  object-fit: cover;
 }
-mat-card-footer{
+
+.contenedor-page.jugadores .card-content{
+  padding: 7px 8px;
+}
+
+.contenedor-page.jugadores .card-content>div{
+  padding-bottom: 5px;
+}
+
+.contenedor-page.jugadores .card-content .posicion,
+.contenedor-page.jugadores .card-content .equipo{
+  color: #9aa0a6;
   font-size: 12px;
-  color: white;
-  text-align: center;
-}
-.divFooter{
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
+  line-height: 16px;
 }
