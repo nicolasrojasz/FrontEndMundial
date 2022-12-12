@@ -34,6 +34,10 @@
   width: 265px;
 }
 
+.contenedor-page.posiciones tr th:not(:first-child){
+  text-align: center;
+
+}
 .contenedor-page.posiciones .icon-victoria {
   color: #3aa757;
 }
@@ -77,7 +81,9 @@
   
   .contenedor-page.posiciones tr th{
       font-size: 12px;
+
   }
+ 
   
   .contenedor-page.posiciones .rango mat-icon {
       vertical-align: middle;

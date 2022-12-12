@@ -1,12 +1,13 @@
 
-
-
 <div class="contenedorLogin">
   <mat-card class="example-card">
     <mat-card-header>
       <div class="divCardHeader">
-        <mat-card-title>Iniciar Sesion</mat-card-title>
-        <mat-card-subtitle>Bienvenido</mat-card-subtitle>
+        <div>
+          <img class="imagen"src="https://img.freepik.com/premium-vector/fifa-world-cup-qatar-2022-logo-stylized-vector-isolated-illustration-with-football_633888-116.jpg?w=360" alt="">
+        </div>
+        <mat-card-title>Iniciar Sesión</mat-card-title>
+        <mat-card-subtitle>¡Bienvenido!</mat-card-subtitle>
       </div>
     </mat-card-header>
 
@@ -16,7 +17,7 @@
         <mat-form-field class="example-full-width">
           <mat-label>Email</mat-label>
           <input type="email" matInput [errorStateMatcher]="matcher" placeholder="Ex. pat@example.com" />
-
+          <mat-icon matSuffix>email</mat-icon>
           <mat-error *ngIf="
               emailFormControl.hasError('email') &&
               !emailFormControl.hasError('required')
@@ -30,6 +31,7 @@
         <mat-form-field class="example-full-width">
           <mat-label>Contraseña</mat-label>
           <input matNativeControl type="password" />
+          <mat-icon matSuffix>vpn_key</mat-icon>
         </mat-form-field>
       </form>
     </mat-card-content>

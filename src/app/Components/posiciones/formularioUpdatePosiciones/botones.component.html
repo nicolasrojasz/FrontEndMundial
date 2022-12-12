@@ -1,0 +1,29 @@
+
+
+
+<div class="container mt-5">
+  <div class="row">
+  <div class="form-group">
+    <select [(ngModel)]="opcionSeleccionado" (change)="capturar()" class="form-select form-select-sm">
+      <option value="0">Selecciona una opción</option>
+      <option *ngFor="let info of tablaPosicionesServices.listPosiciones" value="{{ info.id }}">
+        {{ info.nombreEquipo }}
+      </option>
+    </select>
+
+    <div class="input-group flex-nowrap mt-2">
+      <span class="input-group-text" id="addon-wrapping">Id</span>
+      <input type="text" class="form-control" placeholder="Username" [(ngModel)]='opcion' >
+    </div>
+    
+  </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
