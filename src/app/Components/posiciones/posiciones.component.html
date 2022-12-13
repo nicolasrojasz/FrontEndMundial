@@ -1,87 +1,36 @@
 <div class="contenedor-page posiciones">
   <div>
-
- 
-  <div class="grupos">
-    <h2>Grupo A</h2>
-    <table>
+    <div class="grupos">
+      <div style="display: block;">
+        <app-formulario-update-posiciones></app-formulario-update-posiciones>
+      </div>
+      <h2>Grupo A</h2>
+      <table>
         <thead>
-            <tr>
-              <th>Equipo</th>
-              <th>PJ</th>
-              <th>PG</th>
-              <th>PE</th>
-              <th>PP</th>
-              <th>GF</th>
-              <th>GC</th>
-              <th>PTS</th>
-              <th>ÚLTIMOS 5</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let info of tablaPosicionesServices.listPosiciones">
-              <td *ngIf="info.id!<=4">{{info.nombreEquipo}}</td>
-              <td *ngIf="info.id!<=4">{{info.pj}}</td>
-              <td *ngIf="info.id!<=4">{{info.pg}}</td>
-              <td *ngIf="info.id!<=4">{{info.pe}}</td>
-              <td *ngIf="info.id!<=4">{{info.pp}}</td>
-              <td *ngIf="info.id!<=4">{{info.gf}}</td>
-              <td *ngIf="info.id!<=4">{{info.gc}}</td>
-              <td *ngIf="info.id!<=4">{{info.puntos}}</td>
-              <td  *ngIf="info.id!<=4">
-                <div class="ultimos-partidos">
-                  <div class="up1">
-                    <mat-icon class="icon-victoria">check_circle</mat-icon>
-                  </div>
-                  <div class="up2">
-                    <mat-icon class="icon-victoria">check_circle</mat-icon>
-                  </div>
-                  <div class="up3">
-                    <mat-icon class="icon-derrota">cancel</mat-icon>
-                  </div>
-                  <div class="up4">
-                    <mat-icon class="icon-empate">remove_circle</mat-icon>
-                  </div>
-                  <div class="up5">
-                    <mat-icon class="icon-nojugo">circle</mat-icon>
-                  </div>
-                </div>
-              </td>
-            </tr>
-         
-        </tbody>
-    </table>
-  </div>
-
-  
-  <div class="grupos">
-    <h2>Grupo B</h2>
-    <table>
-        <thead>
-            <tr>
-              <th>Equipo</th>
-              <th>PJ</th>
-              <th>PG</th>
-              <th>PE</th>
-              <th>PP</th>
-              <th>GF</th>
-              <th>GC</th>
-              <th>PTS</th>
-              <th>ÚLTIMOS 5</th>
-            </tr>
+          <tr>
+            <th>Equipo</th>
+            <th>PJ</th>
+            <th>PG</th>
+            <th>PE</th>
+            <th>PP</th>
+            <th>GF</th>
+            <th>GC</th>
+            <th>PTS</th>
+            <th>ÚLTIMOS 5</th>
+          </tr>
         </thead>
         <tbody>
           <tr *ngFor="let info of tablaPosicionesServices.listPosiciones">
-            <td *ngIf="info.id!>=5">{{info.nombreEquipo}}</td>
-            <td *ngIf="info.id!>=5">{{info.pj}}</td>
-            <td *ngIf="info.id!>=5">{{info.pg}}</td>
-            <td *ngIf="info.id!>=5">{{info.pe}}</td>
-            <td *ngIf="info.id!>=5">{{info.pp}}</td>
-            <td *ngIf="info.id!>=5">{{info.gf}}</td>
-            <td *ngIf="info.id!>=5">{{info.gc}}</td>
-            <td *ngIf="info.id!>=5">{{info.puntos}}</td>
-            <td  *ngIf="info.id!>=5">
-            <div class="ultimos-partidos">
+            <td *ngIf="info.id! <= 4">{{ info.nombreEquipo }}</td>
+            <td *ngIf="info.id! <= 4">{{ info.pj }}</td>
+            <td *ngIf="info.id! <= 4">{{ info.pg }}</td>
+            <td *ngIf="info.id! <= 4">{{ info.pe }}</td>
+            <td *ngIf="info.id! <= 4">{{ info.pp }}</td>
+            <td *ngIf="info.id! <= 4">{{ info.gf }}</td>
+            <td *ngIf="info.id! <= 4">{{ info.gc }}</td>
+            <td *ngIf="info.id! <= 4">{{ info.puntos }}</td>
+            <td *ngIf="info.id! <= 4">
+              <div class="ultimos-partidos">
                 <div class="up1">
                   <mat-icon class="icon-victoria">check_circle</mat-icon>
                 </div>
@@ -100,38 +49,78 @@
               </div>
             </td>
           </tr>
-          
         </tbody>
-    </table>
+      </table>
+    </div>
+
+    <div class="grupos">
+      <h2>Grupo B</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Equipo</th>
+            <th>PJ</th>
+            <th>PG</th>
+            <th>PE</th>
+            <th>PP</th>
+            <th>GF</th>
+            <th>GC</th>
+            <th>PTS</th>
+            <th>ÚLTIMOS 5</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let info of tablaPosicionesServices.listPosiciones">
+            <td *ngIf="info.id!>= 5">{{ info.nombreEquipo }}</td>
+            <td *ngIf="info.id!>= 5">{{ info.pj }}</td>
+            <td *ngIf="info.id!>= 5">{{ info.pg }}</td>
+            <td *ngIf="info.id!>= 5">{{ info.pe }}</td>
+            <td *ngIf="info.id!>= 5">{{ info.pp }}</td>
+            <td *ngIf="info.id!>= 5">{{ info.gf }}</td>
+            <td *ngIf="info.id!>= 5">{{ info.gc }}</td>
+            <td *ngIf="info.id!>= 5">{{ info.puntos }}</td>
+            <td *ngIf="info.id!>= 5">
+              <div class="ultimos-partidos">
+                <div class="up1">
+                  <mat-icon class="icon-victoria">check_circle</mat-icon>
+                </div>
+                <div class="up2">
+                  <mat-icon class="icon-victoria">check_circle</mat-icon>
+                </div>
+                <div class="up3">
+                  <mat-icon class="icon-derrota">cancel</mat-icon>
+                </div>
+                <div class="up4">
+                  <mat-icon class="icon-empate">remove_circle</mat-icon>
+                </div>
+                <div class="up5">
+                  <mat-icon class="icon-nojugo">circle</mat-icon>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-
-</div>
-
-
-
-
 
   <div class="rango">
     <h3>Últimos 5 partidos</h3>
     <div class="victoria">
-        <mat-icon class="icon-victoria">check_circle</mat-icon> Ganó
+      <mat-icon class="icon-victoria">check_circle</mat-icon> Ganó
     </div>
     <div class="empate">
-        <mat-icon class="icon-empate">remove_circle</mat-icon> Empate
+      <mat-icon class="icon-empate">remove_circle</mat-icon> Empate
     </div>
     <div class="perdio">
-        <mat-icon class="icon-derrota">cancel</mat-icon> Perdió
+      <mat-icon class="icon-derrota">cancel</mat-icon> Perdió
     </div>
     <div class="nojugo">
-        <mat-icon class="icon-nojugo">circle</mat-icon> No jugó
+      <mat-icon class="icon-nojugo">circle</mat-icon> No jugó
     </div>
   </div>
 
-
-  <div>
-    <app-formulario-update-posiciones></app-formulario-update-posiciones>
-  </div>
-
+ 
 </div>
 <div class="divFooter">
   <app-footer></app-footer>

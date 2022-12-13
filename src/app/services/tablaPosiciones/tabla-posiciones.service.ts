@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { TablaPosiciones } from 'src/app/models/TablaPosiciones';
 
 @Injectable({
@@ -8,9 +9,11 @@ import { TablaPosiciones } from 'src/app/models/TablaPosiciones';
 export class TablaPosicionesService {
   //Consumir Urls
   myAppUrl = 'https://localhost:44323';
-  myApiUrl = '/api/tablaposiciones';
+  myApiUrl = '/api/tablaposiciones/';
 
   listPosiciones!: TablaPosiciones[];
+
+
 
   constructor(private http: HttpClient) {}
 
@@ -23,8 +26,10 @@ export class TablaPosicionesService {
         console.log(data);
       });
   }
-  
-  actualizar(tarjeta:any){
 
+  actualizarPosciones(id:number,posicion:TablaPosiciones):Observable<TablaPosiciones>{
+    return this.http.put<TablaPosiciones>(this.myAppUrl + this.myApiUrl + id, posicion)
   }
+  
+
 }

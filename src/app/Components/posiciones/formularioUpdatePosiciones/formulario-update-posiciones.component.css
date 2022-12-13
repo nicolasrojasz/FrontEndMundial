@@ -1,0 +1,23 @@
+.formulario-actualizar{
+    margin-top:10px ;
+    color: black;
+}
+.formulario-actualizar input{
+    margin-bottom: 6px;
+}
+.formulario-actualizar select{
+    margin-right: 10px;
+}
+.fila-select{
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    justify-content: space-around;
+}
+.boton-update{
+text-align: right;
+}
+.boton-update .btn-primary{
+background-color: #c2185b;
+border-color: #c2185b;
+}

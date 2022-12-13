@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser'
 import { FormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar'
 
+
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { FooterComponent } from './Components/footer/footer.component'
 import { EstadisticasComponent } from './Components/estadisticas/estadisticas.component';
@@ -30,7 +31,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatGridListModule} from '@angular/material/grid-list';
 import { PosicionesComponent } from './Components/posiciones/posiciones.component';
-import { FormularioUpdatePosicionesComponent } from './Components/posiciones/formularioUpdatePosiciones/botones.component';
+import { FormularioUpdatePosicionesComponent } from './Components/posiciones/formularioUpdatePosiciones/formulario-update-posiciones.component';
 const rutas: Routes = [
   { path: '', component: PartidosComponent },
   { path: 'partidos', component: PartidosComponent },
@@ -49,8 +50,8 @@ const rutas: Routes = [
     PosicionesComponent,
     JugadoresComponent,
     LoginComponent,
-    FormularioUpdatePosicionesComponent,
-
+    FormularioUpdatePosicionesComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -67,7 +68,7 @@ const rutas: Routes = [
     MatListModule,
     MatGridListModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
     
   ],
   providers: [],
