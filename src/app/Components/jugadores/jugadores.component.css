@@ -10,25 +10,29 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  justify-content: space-around;
+  
+}
+.list-cards{
+  justify-content:center;
 }
 
 .contenedor-page.jugadores .card{
-  width: 100px;
-  margin: 0 4px 8px;
+  width: 120px;
   border: 1px solid #3c4043;
   border-radius: 8px;
   overflow: hidden;
 }
 
 .contenedor-page.jugadores .imagen{
-  height: 100px;
-  width: 100px;
+  /* height: 100%; */
+  width: 100%;
 }
 
 .contenedor-page.jugadores .imagen img{
   width: 100%;
   object-fit: cover;
+  border-radius:50%;
+
 }
 
 .contenedor-page.jugadores .card-content{
@@ -44,4 +48,24 @@
   color: #9aa0a6;
   font-size: 12px;
   line-height: 16px;
+}
+
+.contenedor-page.jugadores .card-content .nombre,
+.contenedor-page.jugadores .card-content .apellido {
+  color: black;
+}
+.nombre{
+  font-size: 12px;
+}
+.apellido{
+font-size: 12px;
+line-height: 12px;
+}
+.card-footer{
+  height: 100%;
+}
+
+.card-footer .equipo > p{
+  color: #2e3031;
+  font-size: 12px;
 }
