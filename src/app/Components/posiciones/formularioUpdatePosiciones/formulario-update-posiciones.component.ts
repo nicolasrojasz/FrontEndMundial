@@ -39,7 +39,14 @@ export class FormularioUpdatePosicionesComponent {
       timer: 2000,
     });
   }
-
+  llenarDatosAlert() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Error al actualizar los datos',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  }
   capturar() {
     this.opcion = this.opcionSeleccionado;
   }
@@ -87,14 +94,27 @@ export class FormularioUpdatePosicionesComponent {
       puntos: parseInt(this.pts),
       equipoId: parseInt(this.equipoId),
     };
-    console.log(obj);
-    this.tablaPosicionesServices
-      .actualizarPosciones(parseInt(this.id), obj)
-      .subscribe((data) => {
-        this.tablaPosicionesServices.obtenerPosiciones();
-        console.log('Se actualizo');
-        this.showAlert();
-        this.limpiarFormulario();
-      });
+    if (
+      Number.isNaN(obj.id) ||
+      Number.isNaN(obj.pj) ||
+      Number.isNaN(obj.pg) ||
+      Number.isNaN(obj.pe) ||
+      Number.isNaN(obj.pp) ||
+      Number.isNaN(obj.gf) ||
+      Number.isNaN(obj.gc) ||
+      Number.isNaN(obj.puntos) ||
+      Number.isNaN(obj.equipoId)
+    ) {
+      this.llenarDatosAlert();
+    } else {
+      this.tablaPosicionesServices
+        .actualizarPosciones(parseInt(this.id), obj)
+        .subscribe((data) => {
+          this.tablaPosicionesServices.obtenerPosiciones();
+          console.log('Se actualizo');
+          this.showAlert();
+          this.limpiarFormulario();
+        });
+    }
   }
 }

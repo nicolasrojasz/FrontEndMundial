@@ -23,7 +23,7 @@ export class JugadoresComponent {
     let end = 0
     
     while (rept != -1) {
-      for (let i = 0; i <= 20; i++) {
+      for (let i = 0; i <= 30; i++) {
         this.numeroRandom = Math.round(Math.random() * (max - min) + min)
 
         if (

@@ -23,7 +23,7 @@ export class TablaPosicionesService {
     this.http.get(this.myAppUrl + this.myApiUrl).toPromise()
     .then((data) => {
         this.listPosiciones = data as TablaPosiciones[];
-        console.log(data);
+        
       });
   }
 

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core'
-import { TablaPosicionesService } from 'src/app/services/tablaPosiciones/tabla-posiciones.service'
+import { Component } from '@angular/core';
+import { TablaPosicionesService } from 'src/app/services/tablaPosiciones/tabla-posiciones.service';
+import { ResultadoService } from 'src/app/services/resultadoServicio/resultado.service';
 
 @Component({
   selector: 'app-posiciones',
@@ -7,9 +8,63 @@ import { TablaPosicionesService } from 'src/app/services/tablaPosiciones/tabla-p
   styleUrls: ['./posiciones.component.css'],
 })
 export class PosicionesComponent {
-  constructor(public tablaPosicionesServices: TablaPosicionesService) {}
+  constructor(
+    public tablaPosicionesServices: TablaPosicionesService,
+    public resultadoServicio: ResultadoService
+  ) {}
 
-  ngOnInit() {
-    this.tablaPosicionesServices.obtenerPosiciones()
+  contador: number = 0;
+  infoResultado: any = [];
+  partidosQatar: any = [];
+  partidosEcuador: any = [];
+  partidosSenegal: any = [];
+  partidosPaisesBajo: any = [];
+  partidosInglaterra: any = [];
+  partidosGales: any = [];
+  partidosIran: any = [];
+  partidosEEUU: any = [];
+
+  async ngOnInit() {
+    this.tablaPosicionesServices.obtenerPosiciones();
+    await Promise.resolve(this.resultadoServicio.obtenerResultado()).then(
+      (data) => {
+        this.infoResultado = data;
+      }
+    );
+    await this.seccionarPartidos(this.infoResultado);
+  }
+
+  seccionarPartidos(infoResultado: any) {
+    this.partidosQatar = infoResultado.filter((partidos: any) => {
+      return partidos.equipoId === 1;
+    });
+    this.partidosEcuador = infoResultado.filter((partidos: any) => {
+      return partidos.equipoId === 2;
+    });
+
+    this.partidosSenegal = infoResultado.filter((partidos: any) => {
+      return partidos.equipoId === 3;
+    });
+
+    this.partidosPaisesBajo = infoResultado.filter((partidos: any) => {
+      return partidos.equipoId === 4;
+    });
+
+    this.partidosInglaterra = infoResultado.filter((partidos: any) => {
+      return partidos.equipoId === 5;
+    });
+    console.log(this.partidosInglaterra);
+
+    this.partidosGales = infoResultado.filter((partidos: any) => {
+      return partidos.equipoId === 6;
+    });
+
+    this.partidosIran = infoResultado.filter((partidos: any) => {
+      return partidos.equipoId === 7;
+    });
+
+    this.partidosEEUU = infoResultado.filter((partidos: any) => {
+      return partidos.equipoId === 8;
+    });
   }
 }
