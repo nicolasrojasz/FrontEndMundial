@@ -26,6 +26,7 @@ export class PosicionesComponent {
 
   async ngOnInit() {
     this.tablaPosicionesServices.obtenerPosiciones();
+    
     await Promise.resolve(this.resultadoServicio.obtenerResultado()).then(
       (data) => {
         this.infoResultado = data;
@@ -41,15 +42,12 @@ export class PosicionesComponent {
     this.partidosEcuador = infoResultado.filter((partidos: any) => {
       return partidos.equipoId === 2;
     });
-
     this.partidosSenegal = infoResultado.filter((partidos: any) => {
       return partidos.equipoId === 3;
     });
-
     this.partidosPaisesBajo = infoResultado.filter((partidos: any) => {
       return partidos.equipoId === 4;
     });
-
     this.partidosInglaterra = infoResultado.filter((partidos: any) => {
       return partidos.equipoId === 5;
     });

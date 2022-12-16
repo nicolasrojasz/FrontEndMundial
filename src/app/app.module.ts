@@ -9,7 +9,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar'
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { FooterComponent } from './Components/footer/footer.component'
 import { EstadisticasComponent } from './Components/estadisticas/estadisticas.component';
-
+import { UpdateAsistenciasComponent } from './Components/estadisticas/update-asistencias/update-asistencias.component';
+import { UpdateGoleadoresComponent } from './Components/estadisticas/update-goleadores/update-goleadores.component';
+import { UpdateTarjetasRojasComponent } from './Components/estadisticas/update-tarjetas-rojas/update-tarjetas-rojas.component';
 import{HttpClientModule} from'@angular/common/http'
 
 import { MatToolbarModule } from '@angular/material/toolbar'
@@ -23,12 +25,13 @@ import { LoginComponent } from './Components/login/login.component'
 import { MatCardModule } from '@angular/material/card'
 import { JugadoresComponent } from './Components/jugadores/jugadores.component';
 import { PartidosComponent } from './Components/partidos/partidos.component';
+import { FormUpdatePartidosComponent } from './Components/partidos/form-update-partidos/form-update-partidos.component';
+
 
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { Routes, RouterModule } from '@angular/router'
 import {MatInputModule} from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import {MatGridListModule} from '@angular/material/grid-list';
 import { PosicionesComponent } from './Components/posiciones/posiciones.component';
 import { FormularioUpdatePosicionesComponent } from './Components/posiciones/formularioUpdatePosiciones/formulario-update-posiciones.component';
@@ -50,7 +53,11 @@ const rutas: Routes = [
     PosicionesComponent,
     JugadoresComponent,
     LoginComponent,
-    FormularioUpdatePosicionesComponent
+    FormularioUpdatePosicionesComponent,
+    FormUpdatePartidosComponent,
+    UpdateAsistenciasComponent,
+    UpdateGoleadoresComponent,
+    UpdateTarjetasRojasComponent
   
   ],
   imports: [

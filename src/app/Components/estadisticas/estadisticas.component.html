@@ -2,6 +2,10 @@
 <div class="container">
   <div class="divTitulo">
     <div class="containerTitulo">
+      <div style="display: block;" >
+        <app-update-goleadores></app-update-goleadores>
+      </div>
+
       <h3>Goles</h3>
     </div>
   </div>
@@ -12,51 +16,16 @@
               <tr>
                 <th scope="col" class="cabeceraTable">Jugadores</th>
                 <th scope="col" style="text-align: right; padding-right: 10px;" class="cabeceraTable">Goles</th>
-                
               </tr>
             </thead>
             <tbody>
-
-              <tr>
+              <tr *ngFor="let item of goleadores">
                 <th>
                   <img class="imgJugadores"  src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQmdWGDphgAVHsZS1_SFXzYHg-nD3cRBev0ey5nhmfU8xp0XoSsmmTbi7PfZ2p8cO3Bda7I_gJoqnvkGT-35gVplPLDSemVvnXUmA" alt="">
-                   <p class="text">Kylian Mbappé</p>  
-                    
-                               
+                   <p class="text">{{item.nombreJugador}}</p>
+                   <!-- <div class="imagen"><img mat-card-image src = "assets/img/jugadores/{{item.id}}.png" alt="" height="100px" /></div> -->
                 </th>
-                <td>1</td>
-                
-              </tr>
-              <tr>
-                <th>
-                  <img class="imgJugadores" src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSzLUYnpvHePJHfG1tFiRJnDVTTw5Pn6Dsm5gg85gdpOMubBC7EPzagHR-jA1ipF856Pit2ppix43vKtwEiOt6-58Udn4__gL3D5Q" alt="">
-                   <p class="text">Álvaro Morata</p>
-                </th>
-                <td>2</td>
-              </tr>
-
-              <tr>
-                <th>
-                  <img class="imgJugadores" src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQmN8J1prl4kE7yYRcfCuiNIah7o7cew0im-9isXIfuvKf9K9mA_gHoe3-C5wEmEoAa-zBpCfE0y6bNOIjBb6ztvYdHS5os6wshQw" alt="">
-                  <p class="text"> Bukayo Saka</p>
-                </th>
-                <td>3</td>
-              </tr>
-
-              <tr>
-                <th>
-                  <img class="imgJugadores" src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRnRLT2SrHQqivQGFCPsJqfPQjxb_l3Bw_QS4hr-7mHIxg3hZ2rTkaEYX5QZlj3rIUvk1pOHcX_HNVeRAgRgeRAcOhJl1KnJW62mw" alt="">
-                  <p class="text">Cody Gakpo</p>
-                </th>
-                <td>4</td>
-              </tr>
-
-              <tr>
-                <th>
-                  <img class="imgJugadores" src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRZn-RS1CjoDmZZM7Bb9LgWA9mkFR3lnS0UK64Mkcse4qtTFO5Z2xIjLwvO_NTVJjv8fE5mkLWwdDPj-it26KofjRoCurh1QaVlMA" alt="">
-                  <div class="text">Lionel Messi </div>
-                </th>
-                <td>4</td>
+                <td>{{item.goles}}</td>
               </tr>
             </tbody>
           </table>
@@ -65,6 +34,11 @@
 
   <div class="divTitulo">
     <div class="containerTitulo">
+
+      <div style="display: block;" >
+        <app-update-asistencias></app-update-asistencias>
+      </div>
+
       <h3>Asistencias</h3>
     </div>
   </div>
@@ -84,63 +58,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let item of asistencias">
             <th>
-              <img
-                class="imgJugadores"
-                src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQmdWGDphgAVHsZS1_SFXzYHg-nD3cRBev0ey5nhmfU8xp0XoSsmmTbi7PfZ2p8cO3Bda7I_gJoqnvkGT-35gVplPLDSemVvnXUmA"
-                alt=""
-              />
-              <p class="text">Kylian Mbappé</p>
+              <img class="imgJugadores" src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQmdWGDphgAVHsZS1_SFXzYHg-nD3cRBev0ey5nhmfU8xp0XoSsmmTbi7PfZ2p8cO3Bda7I_gJoqnvkGT-35gVplPLDSemVvnXUmA" alt=""/>
+              <p class="text">{{item.nombreJugador}}</p>
             </th>
-            <td>1</td>
-          </tr>
-          <tr>
-            <th>
-              <img
-                class="imgJugadores"
-                src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSzLUYnpvHePJHfG1tFiRJnDVTTw5Pn6Dsm5gg85gdpOMubBC7EPzagHR-jA1ipF856Pit2ppix43vKtwEiOt6-58Udn4__gL3D5Q"
-                alt=""
-              />
-              <p class="text">Álvaro Morata</p>
-            </th>
-            <td>2</td>
-          </tr>
-
-          <tr>
-            <th>
-              <img
-                class="imgJugadores"
-                src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQmN8J1prl4kE7yYRcfCuiNIah7o7cew0im-9isXIfuvKf9K9mA_gHoe3-C5wEmEoAa-zBpCfE0y6bNOIjBb6ztvYdHS5os6wshQw"
-                alt=""
-              />
-              <p class="text">Bukayo Saka</p>
-            </th>
-            <td>3</td>
-          </tr>
-
-          <tr>
-            <th>
-              <img
-                class="imgJugadores"
-                src="https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRnRLT2SrHQqivQGFCPsJqfPQjxb_l3Bw_QS4hr-7mHIxg3hZ2rTkaEYX5QZlj3rIUvk1pOHcX_HNVeRAgRgeRAcOhJl1KnJW62mw"
-                alt=""
-              />
-              <p class="text">Cody Gakpo</p>
-            </th>
-            <td>4</td>
-          </tr>
-
-          <tr>
-            <th>
-              <img
-                class="imgJugadores"
-                src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRZn-RS1CjoDmZZM7Bb9LgWA9mkFR3lnS0UK64Mkcse4qtTFO5Z2xIjLwvO_NTVJjv8fE5mkLWwdDPj-it26KofjRoCurh1QaVlMA"
-                alt=""
-              />
-              <div class="text">Lionel Messi</div>
-            </th>
-            <td>4</td>
+            <td>{{item.asistencias}}</td>
           </tr>
         </tbody>
       </table>
@@ -149,10 +72,14 @@
 
   <div class="divTitulo">
     <div class="containerTitulo">
+
+      <div style="display: block;" >
+        <app-update-tarjetas-rojas></app-update-tarjetas-rojas>
+      </div>
+
       <h3>Tarjetas Rojas</h3>
     </div>
   </div>
-
   <div class="row">
     <div class="col-12">
       <table class="table">
@@ -169,28 +96,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let item of tarjetasrojas">
             <th>
-              <img
-                class="imgJugadores"
-                src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTnJFjZEbHVghbGpBT8g115ai8gbMWh8wjwO8XQ9Uh3eQBLMICljCFiYXoAvoQ5_lhgKyHNhanIBMG806ZQAZn9wKPFWQ6em_-02g"
-                alt=""
-              />
-              <p class="text">Vincent Aboubakar</p>
+              <img class="imgJugadores" src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcTnJFjZEbHVghbGpBT8g115ai8gbMWh8wjwO8XQ9Uh3eQBLMICljCFiYXoAvoQ5_lhgKyHNhanIBMG806ZQAZn9wKPFWQ6em_-02g" alt=""/>
+              <p class="text">{{item.nombreJugador}}</p>
             </th>
-            <td>1</td>
-          </tr>
-          <tr>
-            <th>
-              <img
-                class="imgJugadores"
-                src="https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQvBb3cjZ6W8uVNnn17XCSYnXgPJpbcgyVVL5j0rB78vm1GksPbEqILzG8EcSQKIBvf1r3Nx4c4bxkviSbf6tM1oxyZ4A7QQDXiAg"
-                alt=""
-              />
-              <p class="text">Wayne Hennessey</p>
-              
-            </th>
-            <td>1</td>
+            <td>{{item.numero}}</td>
           </tr>
         </tbody>
       </table>

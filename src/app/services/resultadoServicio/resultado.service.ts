@@ -16,6 +16,22 @@ export class ResultadoService {
   constructor(private http: HttpClient){}
 
 
+  obtenerResultado2(){
+    this.http.get(this.myAppurl+this.myApiurl).toPromise()
+    .then(data => {
+      this.listaResultados = data as Resultado[];
+    })
+  }
+  
+
+
+
+
+
+
+
+
+
 
   async obtenerResultado(){
     await this.http.get(this.myAppurl+this.myApiurl).toPromise()
@@ -24,6 +40,16 @@ export class ResultadoService {
     })
     return this.listaResultados
   }
+
+
+
+
+
+
+
+
+
+  
   
   guardarResultado(resultado:Resultado):Observable<Resultado>{
     return this.http.post<Resultado>(this.myAppurl+this.myApiurl,resultado)

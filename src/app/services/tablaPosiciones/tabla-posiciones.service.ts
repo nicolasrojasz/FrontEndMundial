@@ -27,8 +27,8 @@ export class TablaPosicionesService {
       });
   }
 
-  actualizarPosciones(id:number,posicion:TablaPosiciones):Observable<TablaPosiciones>{
-    return this.http.put<TablaPosiciones>(this.myAppUrl + this.myApiUrl + id, posicion)
+  actualizarPosciones(id:number,datos:TablaPosiciones):Observable<TablaPosiciones>{
+    return this.http.put<TablaPosiciones>(this.myAppUrl + this.myApiUrl + id, datos)
   }
   
 

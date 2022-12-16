@@ -52,7 +52,7 @@ export class FormularioUpdatePosicionesComponent {
   }
 
   limpiarFormulario() {
-    this.opcionSeleccionado = '0';
+    this.opcionSeleccionado ='0'
     this.nombreEquipo = '';
     this.id = '';
     this.pj = '';
@@ -93,6 +93,7 @@ export class FormularioUpdatePosicionesComponent {
       gc: parseInt(this.gc),
       puntos: parseInt(this.pts),
       equipoId: parseInt(this.equipoId),
+      nombreEquipo:this.nombreEquipo
     };
     if (
       Number.isNaN(obj.id) ||
@@ -111,6 +112,8 @@ export class FormularioUpdatePosicionesComponent {
         .actualizarPosciones(parseInt(this.id), obj)
         .subscribe((data) => {
           this.tablaPosicionesServices.obtenerPosiciones();
+
+          
           console.log('Se actualizo');
           this.showAlert();
           this.limpiarFormulario();
