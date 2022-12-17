@@ -4,6 +4,7 @@ import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 //imports
 import { Observable } from 'rxjs';
 import { UsuariosService } from 'src/app/services/loginServices/usuarios.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-edit-usuarios',
@@ -38,6 +39,25 @@ export class AddEditUsuariosComponent implements OnInit {
     this.ListUsuarios$ = this.servicioUsuario.get();
   }
 
+  showAlert() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Registro creado correctamente',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  }
+  
+  showAlertUpdate() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Registro actualizado correctamente',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  }
+
+
   agregarUsuario(){
     var usuario = {
       nombre: this.nombre,
@@ -46,20 +66,13 @@ export class AddEditUsuariosComponent implements OnInit {
     }
     this.servicioUsuario.post(usuario)
     .subscribe(res => {
+      this.showAlert();
       var closeModal = document.getElementById('add-edit-modal-close');
       if(closeModal){
         closeModal.click();
       }
-      var showAddSuccess = document.getElementById('add-success-alert');
-      if(showAddSuccess){
-        showAddSuccess.style.display = 'block';
-      }
-      setTimeout(function(){
-        if(showAddSuccess){
-          showAddSuccess.style.display = 'none';
-        }
-      },4000)
     })
+
   }
 
   updateUsuario(){
@@ -73,20 +86,12 @@ export class AddEditUsuariosComponent implements OnInit {
     let id:number=Number(a);
     this.servicioUsuario.put(id,usuario)
     .subscribe(res => {
+      this.showAlertUpdate()
       var closeModal = document.getElementById('add-edit-modal-close');
       if(closeModal){
         closeModal.click();
       }
-      var showUpdateSuccess = document.getElementById('update-success-alert');
-      if(showUpdateSuccess){
-        showUpdateSuccess.style.display = 'block';
-      }
-      setTimeout(function(){
-        if(showUpdateSuccess){
-          showUpdateSuccess.style.display = 'none';
-          location.reload();
-        }
-      },4000)
+
     })
   }
 

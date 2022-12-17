@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TarjetaRoja } from 'src/app/models/TarjetaRoja';
@@ -11,27 +11,33 @@ export class TarjetasrojasService {
   myAppUrl = 'https://localhost:44335';
   myApiUrl = '/api/tarjetasrojas/';
 
-  listTarjetasRojas!:TarjetaRoja []
+  tarjetasrojas!: TarjetaRoja[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpclient: HttpClient) { }
 
-  getTarjetasRojas2(){
-     this.http.get(this.myAppUrl + this.myApiUrl).toPromise()
+  getHttpOptions() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+      }),
+    };
+    return httpOptions;
+  }
+
+  getTarjetasRojas():Observable<TarjetaRoja[]>{
+    return this.httpclient.get<TarjetaRoja[]>(this.myAppUrl + this.myApiUrl);
+  }
+
+  getTarjetasRojas_2() {
+    this.httpclient.get(this.myAppUrl + this.myApiUrl).toPromise()
     .then((data) => {
-        this.listTarjetasRojas = data as TarjetaRoja[];
-      });
- }
+        this.tarjetasrojas = data as TarjetaRoja[];
 
-
-  async getTarjetasRojas(){
-    await this.http.get(this.myAppUrl + this.myApiUrl).toPromise()
-    .then((data) => {
-        this.listTarjetasRojas = data as TarjetaRoja[];
+        this.tarjetasrojas?.sort((a, b) => (a.numero < b.numero ? 1 : -1));
       });
-      return this.listTarjetasRojas
   }
 
   updateTarjetasRojas(id:number,posicion:TarjetaRoja):Observable<TarjetaRoja>{
-    return this.http.put<TarjetaRoja>(this.myAppUrl + this.myApiUrl + id, posicion)
+    return this.httpclient.put<TarjetaRoja>(this.myAppUrl + this.myApiUrl + id, posicion, this.getHttpOptions())
   }
 }

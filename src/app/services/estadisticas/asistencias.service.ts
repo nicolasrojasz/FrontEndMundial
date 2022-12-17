@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Asistencia } from 'src/app/models/Asistencia';
@@ -11,29 +11,35 @@ export class AsistenciasService {
   myAppUrl = 'https://localhost:44335';
   myApiUrl = '/api/asistencias/';
 
-  listAsistencias!:Asistencia[]
+  asistencias!: Asistencia[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpclient: HttpClient) { }
 
-  getAsistencias_2(){
-    this.http.get(this.myAppUrl + this.myApiUrl).toPromise()
-    .then((data) => {
-        this.listAsistencias = data as Asistencia[];
-      });
-    
+  getHttpOptions() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+      }),
+    };
+    return httpOptions;
   }
 
 
-  async getAsistencias(){
-    await this.http.get(this.myAppUrl + this.myApiUrl).toPromise()
+  getAsistencias():Observable<Asistencia[]>{
+    return this.httpclient.get<Asistencia[]>(this.myAppUrl + this.myApiUrl);
+  }
+
+  getAsistencias_2() {
+    this.httpclient.get(this.myAppUrl + this.myApiUrl).toPromise()
     .then((data) => {
-        this.listAsistencias = data as Asistencia[];
+        this.asistencias = data as Asistencia[];
+
+        this.asistencias?.sort((a, b) => (a.asistencias < b.asistencias ? 1 : -1));
       });
-      return this.listAsistencias
   }
 
   updateAsistencias(id:number,posicion:Asistencia):Observable<Asistencia>{
-    return this.http.put<Asistencia>(this.myAppUrl + this.myApiUrl + id, posicion)
+    return this.httpclient.put<Asistencia>(this.myAppUrl + this.myApiUrl + id, posicion, this.getHttpOptions())
   }
 
 }

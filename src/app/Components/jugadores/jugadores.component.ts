@@ -30,7 +30,6 @@ export class JugadoresComponent {
           this.listaNumeroRandom.indexOf(this.numeroRandom) < 0 &&
           this.numeroRandom != 0
         ) {
-          console.log(this.numeroRandom)
           this.listaNumeroRandom.push(this.numeroRandom)
         }
 

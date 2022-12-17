@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 //imports
+
 import { Observable } from 'rxjs';
 import { UsuariosService } from 'src/app/services/loginServices/usuarios.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-ver-usuarios',
@@ -30,6 +32,14 @@ export class VerUsuariosComponent implements OnInit {
     console.log(this.ListUsuarios$);
   }
 
+  showAlertDelete() {
+    Swal.fire({
+      icon: 'success',
+      title: 'Registro Eliminado correctamente',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+  }
 
   modalAdd(){
     this.usuario ={
@@ -57,20 +67,7 @@ export class VerUsuariosComponent implements OnInit {
   delete(item: any) {
     if (confirm(`Esta seguro de eliminar el registro  ${item.id}`)) {
       this.servicioUsuario.delete(item.id).subscribe(() => {
-        var closeModal = document.getElementById('add-edit-modal-close');
-        if (closeModal) {
-          closeModal.click();
-        }
-        var showDeleteSuccess = document.getElementById('delete-success-alert');
-        if (showDeleteSuccess) {
-          showDeleteSuccess.style.display = 'block';
-        }
-        setTimeout(function () {
-          if (showDeleteSuccess) {
-            showDeleteSuccess.style.display = 'none';
-            location.reload();
-          }
-        }, 4000);
+        this.showAlertDelete()
         this.ListUsuarios$ = this.servicioUsuario.get();
       })
     }

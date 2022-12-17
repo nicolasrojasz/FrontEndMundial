@@ -32,8 +32,42 @@ export class FormUpdatePartidosComponent {
   capturar() {
     this.opcion = this.opcionSeleccionado
   }
+  errorOpcion() {
+    Swal.fire({
+      icon: 'error',
+      title: 'No se pudo seleccionar un equipo',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+}
+showAlert() {
+  Swal.fire({
+    icon: 'success',
+    title: 'Registro actualizado correctamente',
+    text:'Recuerda Actualizar el otro equipo',
+    showConfirmButton: false,
+    timer: 2000,
+  });
+}
+llenarDatosAlert() {
+  Swal.fire({
+    icon: 'error',
+    title: 'Error al actualizar los datos',
+    showConfirmButton: false,
+    timer: 2000,
+  });
+}
 
   editar(resultado:any){
+    if (this.opcion==='0') {
+      this.errorOpcion()
+    this.nombreEquipo = ''
+    this.id = 0
+    this.gf = 0
+    this.gc = 0
+    this.numeroPartido =0
+    this.equipoId = 0
+    }else{
     const resu = resultado
     this.infoSeleccionada = (resu[parseInt(this.opcion)-1])
     console.log(this.infoSeleccionada)
@@ -45,25 +79,9 @@ export class FormUpdatePartidosComponent {
     this.numeroPartido = this.infoSeleccionada.numeroPartido
     this.equipoId = this.infoSeleccionada.equipoId
   }
+  }
 
 
-  showAlert() {
-    Swal.fire({
-      icon: 'success',
-      title: 'Registro actualizado correctamente',
-      text:'Recuerda Actualizar el otro equipo',
-      showConfirmButton: false,
-      timer: 2000,
-    });
-  }
-  llenarDatosAlert() {
-    Swal.fire({
-      icon: 'error',
-      title: 'Error al actualizar los datos',
-      showConfirmButton: false,
-      timer: 2000,
-    });
-  }
 
   limpiarFormulario() {
     this.opcionSeleccionado ='0'

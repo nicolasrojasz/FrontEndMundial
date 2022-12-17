@@ -1,4 +1,4 @@
-<div class="boton-update">
+<div class="boton-update" *ngIf="admin">
   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2"
     data-bs-whatever="@mdo">
     Editar
@@ -10,9 +10,9 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 style="color: black;" class="modal-title fs-5" id="exampleModalLabel">
-            Actualizar Tabla
+            Actualizar Asistencias
           </h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="limpiarFormulario()"></button>
         </div>
         <div class="modal-body">
 

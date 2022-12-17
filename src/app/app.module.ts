@@ -9,7 +9,6 @@ import { FooterComponent } from './Components/footer/footer.component'
 import { EstadisticasComponent } from './Components/estadisticas/estadisticas.component';
 import { UpdateAsistenciasComponent } from './Components/estadisticas/update-asistencias/update-asistencias.component';
 import { UpdateGoleadoresComponent } from './Components/estadisticas/update-goleadores/update-goleadores.component';
-import { UpdateTarjetasRojasComponent } from './Components/estadisticas/update-tarjetas-rojas/update-tarjetas-rojas.component';
 import{HttpClientModule} from'@angular/common/http'
 
 import { MatToolbarModule } from '@angular/material/toolbar'
@@ -37,6 +36,7 @@ import { AppComponent } from './app.component';
 import { AddEditUsuariosComponent } from './Components/usuarios/add-edit-usuarios/add-edit-usuarios.component';
 import { VerUsuariosComponent } from './Components/usuarios/ver-usuarios/ver-usuarios.component';
 import { CommonModule } from '@angular/common';
+import { UpdateTarjetasRojasComponent } from './Components/estadisticas/update-tarjetas-rojas/update-tarjetas-rojas.component';
 
 
 @NgModule({
@@ -52,10 +52,12 @@ import { CommonModule } from '@angular/common';
     FormUpdatePartidosComponent,
     UpdateAsistenciasComponent,
     UpdateGoleadoresComponent,
-    UpdateTarjetasRojasComponent,
     AppComponent,
     AddEditUsuariosComponent,
     VerUsuariosComponent,
+    UpdateGoleadoresComponent,
+    UpdateAsistenciasComponent,
+    UpdateTarjetasRojasComponent
   
   ],
   imports: [

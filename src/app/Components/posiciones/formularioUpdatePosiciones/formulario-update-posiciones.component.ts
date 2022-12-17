@@ -47,12 +47,20 @@ export class FormularioUpdatePosicionesComponent {
       timer: 2000,
     });
   }
+  errorOpcion() {
+    Swal.fire({
+      icon: 'error',
+      title: 'No se pudo seleccionar un equipo',
+      showConfirmButton: false,
+      timer: 2000,
+    });
+}
   capturar() {
     this.opcion = this.opcionSeleccionado;
   }
 
   limpiarFormulario() {
-    this.opcionSeleccionado ='0'
+    this.opcionSeleccionado = '0';
     this.nombreEquipo = '';
     this.id = '';
     this.pj = '';
@@ -66,6 +74,19 @@ export class FormularioUpdatePosicionesComponent {
   }
 
   editar(posicion: any) {
+    if (this.opcion==='0') {
+      this.errorOpcion()
+      this.id = '';
+      this.pj = '';
+      this.pg = '';
+      this.pe = '';
+      this.pp = '';
+      this.gf = '';
+      this.gc = '';
+      this.pts = '';
+      this.equipoId = '';
+     }else{
+ 
     const info = posicion;
     this.infoSeleccionada = info[parseInt(this.opcion) - 1];
     console.log(this.infoSeleccionada);
@@ -81,6 +102,7 @@ export class FormularioUpdatePosicionesComponent {
     this.pts = this.infoSeleccionada.puntos;
     this.equipoId = this.infoSeleccionada.equipoId;
   }
+}
 
   enviarInfo() {
     let obj: TablaPosiciones = {
@@ -93,7 +115,7 @@ export class FormularioUpdatePosicionesComponent {
       gc: parseInt(this.gc),
       puntos: parseInt(this.pts),
       equipoId: parseInt(this.equipoId),
-      nombreEquipo:this.nombreEquipo
+      nombreEquipo: this.nombreEquipo,
     };
     if (
       Number.isNaN(obj.id) ||
@@ -113,7 +135,6 @@ export class FormularioUpdatePosicionesComponent {
         .subscribe((data) => {
           this.tablaPosicionesServices.obtenerPosiciones();
 
-          
           console.log('Se actualizo');
           this.showAlert();
           this.limpiarFormulario();

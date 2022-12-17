@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import {AfterViewInit, Component, ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import { Observable } from 'rxjs';
 import { Asistencia } from 'src/app/models/Asistencia';
 import { Goleadores } from 'src/app/models/Goleadores';
 import { TarjetaRoja } from 'src/app/models/TarjetaRoja';
@@ -6,55 +9,42 @@ import { AsistenciasService } from 'src/app/services/estadisticas/asistencias.se
 import { GoleadoresService } from 'src/app/services/estadisticas/goleadores.service';
 import { TarjetasrojasService } from 'src/app/services/estadisticas/tarjetasrojas.service';
 
+
+export interface PeriodicElement {
+  Jugador: string;
+  Goles: number;
+}
+
 @Component({
   selector: 'app-estadisticas',
   templateUrl: './estadisticas.component.html',
-  styleUrls: ['./estadisticas.component.css'],
+  styleUrls: ['./estadisticas.component.css']
 })
+
 export class EstadisticasComponent {
-  goleadores: Goleadores[] | undefined;
-  asistencias: Asistencia[] | undefined;
-  tarjetasrojas: TarjetaRoja[] | undefined;
 
-  constructor(
-    public goleadoresService: GoleadoresService,
-    public asistenciasService: AsistenciasService,
-    public tarjetasrojasService: TarjetasrojasService
-  ) {}
 
-  async ngOnInit() {
-    await Promise.resolve(this.goleadoresService.getGoleadores()).then(
-      (data) => {
-        this.goleadores = data;
-      }
-    );
 
-    await Promise.resolve(this.asistenciasService.getAsistencias()).then(
-      (data) => {
-        this.asistencias = data;
-      }
-    );
+  goleadores:Goleadores[] | undefined;
+  asistencias:Asistencia[] | undefined;
+  tarjetasrojas:TarjetaRoja[] | undefined;
 
-    await Promise.resolve(this.tarjetasrojasService.getTarjetasRojas()).then(
-      (data) => {
-        this.tarjetasrojas = data;
-      }
-    );
+  constructor(public goleadoresservice:GoleadoresService,
+    public asistenciasservice:AsistenciasService,
+    public tarjetasrojasservice:TarjetasrojasService) { }
 
-    await this.getOrdenGoleadores();
-    await this.getOrdenAsistencias();
-    await this.getOrdenTarjetaRojas();
-  }
-  getOrdenGoleadores() {
-    this.goleadores?.sort((a, b) => (a.goles < b.goles ? 1 : -1));
+  ngOnInit(){
   }
 
-  getOrdenAsistencias() {
-    this.asistencias?.sort((a, b) => (a.asistencias < b.asistencias ? 1 : -1));
-    
-  }
-  getOrdenTarjetaRojas() {
-    this.tarjetasrojas?.sort((a, b) => (a.numero < b.numero ? 1 : -1));
-  
-  }
+ getDataGoleadores() {
+    this.goleadoresservice.getGoleadores_2();
+ }
+
+ getDataAsistencias() {
+    this.asistenciasservice.getAsistencias_2();
+}
+
+getDataTarjetasRojas() {
+    this.tarjetasrojasservice.getTarjetasRojas_2();
+}
 }
