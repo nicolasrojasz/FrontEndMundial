@@ -1,7 +1,7 @@
 <div class="contenedor-page posiciones">
   <div>
     <div class="grupos">
-      <div style="display: block;">
+      <div *ngIf="admin">
         <app-formulario-update-posiciones></app-formulario-update-posiciones>
       </div>
       <h2>Grupo A</h2>
@@ -248,7 +248,4 @@
 
 
   </div>
-</div>
-<div class="divFooter">
-  <app-footer></app-footer>
 </div>

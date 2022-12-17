@@ -8,7 +8,7 @@ import { TarjetaRoja } from 'src/app/models/TarjetaRoja';
 })
 export class TarjetasrojasService {
 
-  myAppUrl = 'https://localhost:44323';
+  myAppUrl = 'https://localhost:44335';
   myApiUrl = '/api/tarjetasrojas/';
 
   listTarjetasRojas!:TarjetaRoja []

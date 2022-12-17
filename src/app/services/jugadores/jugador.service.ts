@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class JugadorService {
 
-  readonly url = 'https://localhost:44323/api';
+  readonly url = 'https://localhost:44335/api';
   constructor(private httpclient: HttpClient) { } 
 
  

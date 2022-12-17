@@ -8,7 +8,7 @@ import { Asistencia } from 'src/app/models/Asistencia';
 })
 export class AsistenciasService {
 
-  myAppUrl = 'https://localhost:44323';
+  myAppUrl = 'https://localhost:44335';
   myApiUrl = '/api/asistencias/';
 
   listAsistencias!:Asistencia[]

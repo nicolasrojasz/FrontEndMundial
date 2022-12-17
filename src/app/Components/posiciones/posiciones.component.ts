@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { TablaPosicionesService } from 'src/app/services/tablaPosiciones/tabla-posiciones.service';
 import { ResultadoService } from 'src/app/services/resultadoServicio/resultado.service';
+import { Subscription } from 'rxjs';
+import { LoginService } from 'src/app/services/loginServices/login.service';
 
 @Component({
   selector: 'app-posiciones',
@@ -8,9 +10,16 @@ import { ResultadoService } from 'src/app/services/resultadoServicio/resultado.s
   styleUrls: ['./posiciones.component.css'],
 })
 export class PosicionesComponent {
+
+  admin:boolean=false;
+  subscripcion: Subscription= new Subscription;
+
+
+
   constructor(
     public tablaPosicionesServices: TablaPosicionesService,
-    public resultadoServicio: ResultadoService
+    public resultadoServicio: ResultadoService,
+    private servicioLogin:LoginService
   ) {}
 
   contador: number = 0;
@@ -33,6 +42,14 @@ export class PosicionesComponent {
       }
     );
     await this.seccionarPartidos(this.infoResultado);
+
+    this.subscripcion = this.servicioLogin.obtenerDatosUsuarioEnSesion().subscribe((datos:any)=>{
+      if(datos){
+        this.admin=true;
+      }
+    });
+
+
   }
 
   seccionarPartidos(infoResultado: any) {

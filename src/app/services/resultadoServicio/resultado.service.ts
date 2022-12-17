@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Resultado } from 'src/app/models/resultado';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ResultadoService {
-  myAppurl = 'https://localhost:44323';
+  myAppurl = 'https://localhost:44335';
   myApiurl = '/api/resultados/';
 
   listaResultados!: Resultado[];
@@ -24,7 +24,14 @@ export class ResultadoService {
   }
   
 
-
+  getHttpOptions() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+      }),
+    };
+    return httpOptions;
+  }
 
 
 
@@ -50,13 +57,13 @@ export class ResultadoService {
 
 
   
-  
+/*   
   guardarResultado(resultado:Resultado):Observable<Resultado>{
     return this.http.post<Resultado>(this.myAppurl+this.myApiurl,resultado)
   }
-
+ */
   actualizarResultados(id:number,resultado:Resultado):Observable<Resultado>{
-    return this.http.put<Resultado>(this.myAppurl + this.myApiurl + id, resultado)
+    return this.http.put<Resultado>(this.myAppurl + this.myApiurl + id, resultado, this.getHttpOptions())
   }
   
   /*guardarResultado(resultado: Resultado): Observable<Resultado>{

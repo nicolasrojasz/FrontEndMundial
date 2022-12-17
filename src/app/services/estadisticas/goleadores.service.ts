@@ -8,7 +8,7 @@ import { Goleadores } from 'src/app/models/Goleadores';
 })
 export class GoleadoresService {
 
-  myAppUrl = 'https://localhost:44323';
+  myAppUrl = 'https://localhost:44335';
   myApiUrl = '/api/goleadores/';
 
   goleadores!: Goleadores[];

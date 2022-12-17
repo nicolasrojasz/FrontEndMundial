@@ -4,7 +4,10 @@
       <mat-icon> <a href="login" class="button-back"> arrow_back</a></mat-icon>
       <span class="text-top">Copa Mundial de la FIFA Catar 2022™</span>
     </div>
-    <a href="login" class="LogOut"><button mat-button>Log In</button></a>
+    <a *ngIf="!admin" href="login" class="LogOut"><button mat-button>Iniciar Sesión</button></a>
+    <a *ngIf="admin" href="login" class="LogOut" (click)="logOut()" ><button mat-button>Cerrar Sesión</button></a>
+
+
   </div>
 
   <div class="inferior">
@@ -12,6 +15,9 @@
     <a href="jugadores"><button mat-button>JUGADORES</button></a>
     <a href="estadisticas"><button mat-button>ESTADISTICAS</button></a>
    <a href="posiciones"><button mat-button>POSICIONES</button></a>
+
+   <a *ngIf="admin" href="usuarios"><button mat-button>USUARIOS</button></a>
+
   </div>
   <div class="button-responsive">
     <button (click)="menuResponsive()">
@@ -32,7 +38,9 @@
       <a href="jugadores"><button mat-button>JUGADORES</button></a>
       <a href="estadisticas"><button mat-button>ESTADISTICAS</button></a>
       <a href="posiciones"><button mat-button>POSICIONES</button></a>
-    </div>    
+      <a *ngIf="admin" href="usuarios"><button mat-button>USUARIOS</button></a>
+    </div> 
+
   </div>
 </mat-toolbar>
-<router-outlet></router-outlet>
+

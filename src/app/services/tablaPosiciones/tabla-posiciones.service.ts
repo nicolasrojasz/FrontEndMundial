@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TablaPosiciones } from 'src/app/models/TablaPosiciones';
@@ -8,7 +8,7 @@ import { TablaPosiciones } from 'src/app/models/TablaPosiciones';
 })
 export class TablaPosicionesService {
   //Consumir Urls
-  myAppUrl = 'https://localhost:44323';
+  myAppUrl = 'https://localhost:44335';
   myApiUrl = '/api/tablaposiciones/';
 
   listPosiciones!: TablaPosiciones[];
@@ -16,7 +16,15 @@ export class TablaPosicionesService {
 
 
   constructor(private http: HttpClient) {}
-
+  
+  getHttpOptions() {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Authorization: 'Bearer ' + sessionStorage.getItem('token'),
+      }),
+    };
+    return httpOptions;
+  }
 
 
   obtenerPosiciones() {
@@ -27,8 +35,11 @@ export class TablaPosicionesService {
       });
   }
 
+
+
+
   actualizarPosciones(id:number,datos:TablaPosiciones):Observable<TablaPosiciones>{
-    return this.http.put<TablaPosiciones>(this.myAppUrl + this.myApiUrl + id, datos)
+    return this.http.put<TablaPosiciones>(this.myAppUrl + this.myApiUrl + id, datos,  this.getHttpOptions())
   }
   
 

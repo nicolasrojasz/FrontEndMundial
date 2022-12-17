@@ -1,5 +1,4 @@
-
-<div class="contenedorLogin">
+<div class="contenedorLogin" >
   <mat-card class="example-card">
     <mat-card-header>
       <div class="divCardHeader">
@@ -11,26 +10,33 @@
       </div>
     </mat-card-header>
 
-
     <mat-card-content>
-      <form class="example-form">
+      <form class="example-form"  >
         <mat-form-field class="example-full-width">
-          <mat-label>Email</mat-label>
-          <input type="email" matInput [errorStateMatcher]="matcher" placeholder="Ex. pat@example.com" />
-          <mat-icon matSuffix>email</mat-icon>
+          <mat-label>Usuario</mat-label>
+          <input matInput [errorStateMatcher]="matcher" placeholder="Ingrese usuario" 
+          type="text"
+          [(ngModel)]="nombre"
+          name="nombre"
+          />
+          <mat-icon matSuffix>person_pin</mat-icon>
           <mat-error *ngIf="
-              emailFormControl.hasError('email') &&
+              emailFormControl.hasError('nombre') &&
               !emailFormControl.hasError('required')
             ">
-            Please enter a valid email address
+            Por favor ingrese un usuario valido ! 
           </mat-error>
           <mat-error *ngIf="emailFormControl.hasError('required')">
-            Email is <strong>required</strong>
+            Campo Usuario es <strong>requerido</strong>
           </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Contraseña</mat-label>
-          <input matNativeControl type="password" />
+          <input matNativeControl 
+          type="password"
+          [(ngModel)]="clave"
+          name="clave"
+            />
           <mat-icon matSuffix>vpn_key</mat-icon>
         </mat-form-field>
       </form>
@@ -39,11 +45,12 @@
 
     
     <mat-card-actions class="botones">
-      <a href="partidos"><button mat-button>INICIAR SESION</button></a>
+      <button mat-button 
+        (click)="login()"
+        >INICIAR SESION
+      </button>
+
     </mat-card-actions>
   </mat-card>
 </div>
-<div class="divFooter">
-  <app-footer></app-footer>
-</div>
-<router-outlet></router-outlet>
+

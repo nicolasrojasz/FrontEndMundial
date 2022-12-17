@@ -23,7 +23,7 @@ a{
 .example-card {
   display: flex;
   justify-content: center;
-  width: auto;
+  width: 24%;
   height: auto;
   border: 0.5px solid #c2185b;
   background-color: #202124;

@@ -1,5 +1,5 @@
 <div class="contenedor-page partidos">
-  <div style="display: block;">
+  <div *ngIf="admin">
     <app-form-update-partidos></app-form-update-partidos>
   </div>
 
@@ -439,10 +439,4 @@
 
     </div>
   </div>
-</div>
-<!--div>
-  <app-form-partidos></app-form-partidos>
-</div-->
-<div class="divFooter">
-  <app-footer></app-footer>
 </div>
