@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ErrorComponent } from './Components/error/error.component';
 import { EstadisticasComponent } from './Components/estadisticas/estadisticas.component';
 import { JugadoresComponent } from './Components/jugadores/jugadores.component';
 import { LoginComponent } from './Components/login/login.component';
@@ -13,11 +14,7 @@ const routes: Routes = [
       pathMatch:'full',
       redirectTo:'/inicio'
     },
-/*     {
-      path:'usuarios',
-      loadChildren:()=> import("./modulos/usuarios/usuarios.module").then( modu=>modu.UsuariosModule)
-    },   */
-    
+  
     { path: 'inicio', component: PartidosComponent },
     { path: 'partidos', component: PartidosComponent },
     { path: 'login', component: LoginComponent  },
@@ -25,11 +22,7 @@ const routes: Routes = [
     { path: 'posiciones', component: PosicionesComponent },
     { path: 'estadisticas', component: EstadisticasComponent },
     { path: 'usuarios', component: VerUsuariosComponent },
-  
-/*     {
-      path:"*",
-      component:ErrorComponent
-    }, */
+    { path:"**",  component:ErrorComponent}, 
   ];
   
 

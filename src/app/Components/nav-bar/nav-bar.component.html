@@ -5,7 +5,8 @@
       <span class="text-top">Copa Mundial de la FIFA Catar 2022™</span>
     </div>
     <a *ngIf="!admin" href="login" class="LogOut"><button mat-button><span>Iniciar Sesión</span></button></a>
-    <a *ngIf="admin" href="login" class="LogOut" (click)="logOut()" ><button mat-button><span>Cerrar Sesión</span></button></a>
+    <a *ngIf="admin" href="login" class="LogOut" (click)="logOut()"><button mat-button><span>Cerrar
+          Sesión</span></button></a>
 
 
   </div>
@@ -14,9 +15,9 @@
     <a href="partidos"><button mat-button>PARTIDOS</button></a>
     <a href="jugadores"><button mat-button>JUGADORES</button></a>
     <a href="estadisticas"><button mat-button>ESTADISTICAS</button></a>
-   <a href="posiciones"><button mat-button>POSICIONES</button></a>
+    <a href="posiciones"><button mat-button>POSICIONES</button></a>
 
-   <a *ngIf="admin" href="usuarios"><button mat-button>USUARIOS</button></a>
+    <a *ngIf="admin" href="usuarios"><button mat-button>USUARIOS</button></a>
 
   </div>
   <div class="button-responsive">
@@ -39,8 +40,7 @@
       <a href="estadisticas"><button mat-button>ESTADISTICAS</button></a>
       <a href="posiciones"><button mat-button>POSICIONES</button></a>
       <a *ngIf="admin" href="usuarios"><button mat-button>USUARIOS</button></a>
-    </div> 
+    </div>
 
   </div>
 </mat-toolbar>
-

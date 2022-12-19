@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder,FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 //imports
 import { Observable } from 'rxjs';
@@ -9,33 +9,30 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-edit-usuarios',
   templateUrl: './add-edit-usuarios.component.html',
-  styleUrls: ['./add-edit-usuarios.component.css']
+  styleUrls: ['./add-edit-usuarios.component.css'],
 })
 export class AddEditUsuariosComponent implements OnInit {
-
-  fValidator:FormGroup = this.fb.group({
-    'nombre':['',[Validators.required]],
-    'clave':['',[Validators.required]],
-    'id':['',]
-  }); 
-
-
+ 
+  ListUsuarios$!: Observable<any[]>;
+  @Input() usuario: any;
+  id?: number = 0;
+  nombre?: string = '';
+  clave?: string = '';
+  fValidator: FormGroup = this.fb.group({
+    nombre: ['', [Validators.required]],
+    clave: ['', [Validators.required]],
+    id: [''],
+  });
 
   constructor(
-    private servicioUsuario:UsuariosService,
-    private fb:FormBuilder,
-  ) { }
+    private servicioUsuario: UsuariosService,
+    private fb: FormBuilder
+  ) {}
 
-  ListUsuarios$! : Observable<any[]>
-
-  @Input() usuario:any;
-  id?:number = 0;
-  nombre?:string = '';
-  clave?:string = '';
 
   ngOnInit(): void {
-    this.id=this.usuario.id;
-    this.nombre=this.usuario.nombre;
+    this.id = this.usuario.id;
+    this.nombre = this.usuario.nombre;
     this.ListUsuarios$ = this.servicioUsuario.get();
   }
 
@@ -47,7 +44,7 @@ export class AddEditUsuariosComponent implements OnInit {
       timer: 2000,
     });
   }
-  
+
   showAlertUpdate() {
     Swal.fire({
       icon: 'success',
@@ -57,43 +54,36 @@ export class AddEditUsuariosComponent implements OnInit {
     });
   }
 
-
-  agregarUsuario(){
+  agregarUsuario() {
     var usuario = {
       nombre: this.nombre,
       clave: this.clave,
-      tipo: 'admin'
-    }
-    this.servicioUsuario.post(usuario)
-    .subscribe(res => {
+      tipo: 'admin',
+    };
+    this.servicioUsuario.post(usuario).subscribe((res) => {
       this.showAlert();
       var closeModal = document.getElementById('add-edit-modal-close');
-      if(closeModal){
+      if (closeModal) {
         closeModal.click();
       }
-    })
-
+    });
   }
 
-  updateUsuario(){
+  updateUsuario() {
     var usuario = {
-      id:this.id,
-      nombre:this.nombre,
-      clave:this.clave,
-      tipo:'admin'
-    }
-    let a:any = this.id;
-    let id:number=Number(a);
-    this.servicioUsuario.put(id,usuario)
-    .subscribe(res => {
-      this.showAlertUpdate()
+      id: this.id,
+      nombre: this.nombre,
+      clave: this.clave,
+      tipo: 'admin',
+    };
+    let a: any = this.id;
+    let id: number = Number(a);
+    this.servicioUsuario.put(id, usuario).subscribe((res) => {
+      this.showAlertUpdate();
       var closeModal = document.getElementById('add-edit-modal-close');
-      if(closeModal){
+      if (closeModal) {
         closeModal.click();
       }
-
-    })
+    });
   }
-
-
 }

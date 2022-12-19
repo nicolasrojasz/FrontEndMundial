@@ -1,9 +1,11 @@
-<div class="contenedorLogin" >
+<div class="contenedorLogin">
   <mat-card class="example-card">
     <mat-card-header>
       <div class="divCardHeader">
         <div>
-          <img class="imagen"src="https://img.freepik.com/premium-vector/fifa-world-cup-qatar-2022-logo-stylized-vector-isolated-illustration-with-football_633888-116.jpg?w=360" alt="">
+          <img class="imagen"
+            src="https://img.freepik.com/premium-vector/fifa-world-cup-qatar-2022-logo-stylized-vector-isolated-illustration-with-football_633888-116.jpg?w=360"
+            alt="">
         </div>
         <mat-card-title>Iniciar Sesión</mat-card-title>
         <mat-card-subtitle>¡Bienvenido!</mat-card-subtitle>
@@ -11,20 +13,17 @@
     </mat-card-header>
 
     <mat-card-content>
-      <form class="example-form"  >
+      <form [formGroup]="fValidator" class="example-form">
         <mat-form-field class="example-full-width">
           <mat-label>Usuario</mat-label>
-          <input matInput [errorStateMatcher]="matcher" placeholder="Ingrese usuario" 
-          type="text"
-          [(ngModel)]="nombre"
-          name="nombre"
-          />
+          <input matInput formControlName="nombre" placeholder="Ingrese usuario" type="text" [(ngModel)]="nombre"
+            name="nombre" />
           <mat-icon matSuffix>person_pin</mat-icon>
           <mat-error *ngIf="
               emailFormControl.hasError('nombre') &&
               !emailFormControl.hasError('required')
             ">
-            Por favor ingrese un usuario valido ! 
+            Por favor ingrese un usuario valido !
           </mat-error>
           <mat-error *ngIf="emailFormControl.hasError('required')">
             Campo Usuario es <strong>requerido</strong>
@@ -32,25 +31,28 @@
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Contraseña</mat-label>
-          <input matNativeControl 
-          type="password"
-          [(ngModel)]="clave"
-          name="clave"
-            />
+          <input formControlName="clave" matNativeControl type="password" [(ngModel)]="clave" name="clave" />
           <mat-icon matSuffix>vpn_key</mat-icon>
+          <mat-error *ngIf="
+              claveFormControl.hasError('clave') &&
+              !claveFormControl.hasError('required')
+            ">
+            Por favor ingrese un usuario valido !
+          </mat-error>
+          <mat-error *ngIf="claveFormControl.hasError('required')">
+            Campo Contraseña es <strong>requerido</strong>
+          </mat-error>
+
         </mat-form-field>
       </form>
     </mat-card-content>
 
 
-    
+
     <mat-card-actions class="botones">
-      <button mat-button 
-        (click)="login()"
-        >INICIAR SESION
+      <button [disabled]="!fValidator.valid" type="submit" class="btn btn-danger" (click)="login()">INICIAR SESION
       </button>
 
     </mat-card-actions>
   </mat-card>
 </div>
-

@@ -1,13 +1,13 @@
 <!-- Button trigger modal -->
 <div class="d-flex justify-content-center mt-5">
-  
+
 </div>
 <div class="contenedor-page posiciones">
   <div>
     <div class="grupos">
       <div class="boton-update">
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-          data-bs-whatever="@mdo"(click)="modalAdd()" data-bs-target="#staticBackdrop">
+          data-bs-whatever="@mdo" (click)="modalAdd()" data-bs-target="#staticBackdrop">
           Agregar
         </button>
       </div>
@@ -56,23 +56,23 @@
 
 
 
-<!-- VENTANA MODAL -->
-<div class="container">
-  <div>
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-      aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content formulario-actualizar ">
-          <div class="modal-header divTitulo">
-            <h2 class="text-primary text-center" style="color: white;" id="staticBackdropLabel">
-              {{ title }}
-            </h2>
-            <button id="add-edit-modal-close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-              (click)="modalclose()"></button>
+  <!-- VENTANA MODAL -->
+  <div class="container">
+    <div>
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content formulario-actualizar ">
+            <div class="modal-header divTitulo">
+              <h2 class="text-primary text-center" style="color: white;" id="staticBackdropLabel">
+                {{ title }}
+              </h2>
+              <button id="add-edit-modal-close" type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close" (click)="modalclose()"></button>
+            </div>
+            <app-add-edit-usuarios edit-tipo [usuario]="usuario" *ngIf="modal"></app-add-edit-usuarios>
           </div>
-          <app-add-edit-usuarios edit-tipo [usuario]="usuario" *ngIf="modal"></app-add-edit-usuarios>
         </div>
       </div>
     </div>
   </div>
-</div>

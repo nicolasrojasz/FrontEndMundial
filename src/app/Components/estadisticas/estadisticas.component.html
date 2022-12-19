@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="divTitulo">
     <div class="containerTitulo">
@@ -11,30 +10,30 @@
   </div>
   <div class="row">
     <div class="col-12">
-        <table class="table">
-            <thead>
-              <tr>
-                <th scope="col" class="cabeceraTable">Jugadores</th>
-                <th scope="col" style="text-align: right; padding-right: 10px;" class="cabeceraTable">Goles</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of goleadoresservice.goleadores">
-                <th>
-                  <img class="imgJugadores"  src="assets/img/siluetaJugador.png" alt="">
-                   <p class="text">{{item.nombreJugador}}</p>
-                </th>
-                <td>{{item.goles}}</td>
-              </tr>
-            </tbody>
-          </table>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class="cabeceraTable">Jugadores</th>
+            <th scope="col" style="text-align: right; padding-right: 10px;" class="cabeceraTable">Goles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of goleadoresservice.goleadores">
+            <th>
+              <img class="imgJugadores" src="assets/img/siluetaJugador.png" alt="">
+              <p class="text">{{item.nombreJugador}}</p>
+            </th>
+            <td>{{item.goles}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
   <div class="divTitulo">
     <div class="containerTitulo">
 
-      <div style="display: block;" >
+      <div style="display: block;">
         <app-update-asistencias></app-update-asistencias>
       </div>
 
@@ -47,11 +46,7 @@
         <thead>
           <tr>
             <th scope="col" class="cabeceraTable">Jugadores</th>
-            <th
-              scope="col"
-              style="text-align: right; padding-right: 10px"
-              class="cabeceraTable"
-            >
+            <th scope="col" style="text-align: right; padding-right: 10px" class="cabeceraTable">
               Asist
             </th>
           </tr>
@@ -59,7 +54,7 @@
         <tbody>
           <tr *ngFor="let item of asistenciasservice.asistencias">
             <th>
-              <img class="imgJugadores" src="assets/img/siluetaJugador.png" alt=""/>
+              <img class="imgJugadores" src="assets/img/siluetaJugador.png" alt="" />
               <p class="text">{{item.nombreJugador}}</p>
             </th>
             <td>{{item.asistencias}}</td>
@@ -72,7 +67,7 @@
   <div class="divTitulo">
     <div class="containerTitulo">
 
-      <div style="display: block;" >
+      <div style="display: block;">
         <app-update-tarjetas-rojas></app-update-tarjetas-rojas>
       </div>
 
@@ -85,11 +80,7 @@
         <thead>
           <tr>
             <th scope="col" class="cabeceraTable">Jugadores</th>
-            <th
-              scope="col"
-              style="text-align: right; padding-right: 15px"
-              class="cabeceraTable"
-            >
+            <th scope="col" style="text-align: right; padding-right: 15px" class="cabeceraTable">
               T/R
             </th>
           </tr>
@@ -97,7 +88,7 @@
         <tbody>
           <tr *ngFor="let item of tarjetasrojasservice.tarjetasrojas">
             <th>
-              <img class="imgJugadores" src="assets/img/siluetaJugador.png" alt=""/>
+              <img class="imgJugadores" src="assets/img/siluetaJugador.png" alt="" />
               <p class="text">{{item.nombreJugador}}</p>
             </th>
             <td>{{item.numero}}</td>
@@ -107,4 +98,3 @@
     </div>
   </div>
 </div>
-

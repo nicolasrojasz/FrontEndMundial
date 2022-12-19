@@ -1,19 +1,17 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/app/environments/environment';
 import { TarjetaRoja } from 'src/app/models/TarjetaRoja';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TarjetasrojasService {
-
-  myAppUrl = 'https://localhost:44335';
-  myApiUrl = '/api/tarjetasrojas/';
-
+  url = environment.url;
   tarjetasrojas!: TarjetaRoja[];
 
-  constructor(private httpclient: HttpClient) { }
+  constructor(private httpclient: HttpClient) {}
 
   getHttpOptions() {
     const httpOptions = {
@@ -24,20 +22,29 @@ export class TarjetasrojasService {
     return httpOptions;
   }
 
-  getTarjetasRojas():Observable<TarjetaRoja[]>{
-    return this.httpclient.get<TarjetaRoja[]>(this.myAppUrl + this.myApiUrl);
+  getTarjetasRojas(): Observable<TarjetaRoja[]> {
+    return this.httpclient.get<TarjetaRoja[]>(this.url + 'tarjetasrojas');
   }
 
   getTarjetasRojas_2() {
-    this.httpclient.get(this.myAppUrl + this.myApiUrl).toPromise()
-    .then((data) => {
+    this.httpclient
+      .get(this.url + 'tarjetasrojas')
+      .toPromise()
+      .then((data) => {
         this.tarjetasrojas = data as TarjetaRoja[];
 
         this.tarjetasrojas?.sort((a, b) => (a.numero < b.numero ? 1 : -1));
       });
   }
 
-  updateTarjetasRojas(id:number,posicion:TarjetaRoja):Observable<TarjetaRoja>{
-    return this.httpclient.put<TarjetaRoja>(this.myAppUrl + this.myApiUrl + id, posicion, this.getHttpOptions())
+  updateTarjetasRojas(
+    id: number,
+    posicion: TarjetaRoja
+  ): Observable<TarjetaRoja> {
+    return this.httpclient.put<TarjetaRoja>(
+      this.url + 'tarjetasrojas/' + id,
+      posicion,
+      this.getHttpOptions()
+    );
   }
 }

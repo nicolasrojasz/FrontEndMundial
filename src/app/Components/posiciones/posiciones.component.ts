@@ -10,18 +10,8 @@ import { LoginService } from 'src/app/services/loginServices/login.service';
   styleUrls: ['./posiciones.component.css'],
 })
 export class PosicionesComponent {
-
-  admin:boolean=false;
-  subscripcion: Subscription= new Subscription;
-
-
-
-  constructor(
-    public tablaPosicionesServices: TablaPosicionesService,
-    public resultadoServicio: ResultadoService,
-    private servicioLogin:LoginService
-  ) {}
-
+  admin: boolean = false;
+  subscripcion: Subscription = new Subscription();
   contador: number = 0;
   infoResultado: any = [];
   partidosQatar: any = [];
@@ -33,9 +23,16 @@ export class PosicionesComponent {
   partidosIran: any = [];
   partidosEEUU: any = [];
 
+  constructor(
+    public tablaPosicionesServices: TablaPosicionesService,
+    public resultadoServicio: ResultadoService,
+    private servicioLogin: LoginService
+  ) {}
+
+
   async ngOnInit() {
     this.tablaPosicionesServices.obtenerPosiciones();
-    
+
     await Promise.resolve(this.resultadoServicio.obtenerResultado()).then(
       (data) => {
         this.infoResultado = data;
@@ -43,13 +40,13 @@ export class PosicionesComponent {
     );
     await this.seccionarPartidos(this.infoResultado);
 
-    this.subscripcion = this.servicioLogin.obtenerDatosUsuarioEnSesion().subscribe((datos:any)=>{
-      if(datos){
-        this.admin=true;
-      }
-    });
-
-
+    this.subscripcion = this.servicioLogin
+      .obtenerDatosUsuarioEnSesion()
+      .subscribe((datos: any) => {
+        if (datos) {
+          this.admin = true;
+        }
+      });
   }
 
   seccionarPartidos(infoResultado: any) {
@@ -68,7 +65,6 @@ export class PosicionesComponent {
     this.partidosInglaterra = infoResultado.filter((partidos: any) => {
       return partidos.equipoId === 5;
     });
-    console.log(this.partidosInglaterra);
 
     this.partidosGales = infoResultado.filter((partidos: any) => {
       return partidos.equipoId === 6;

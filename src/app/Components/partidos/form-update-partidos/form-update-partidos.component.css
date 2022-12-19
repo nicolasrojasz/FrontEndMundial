@@ -23,8 +23,8 @@
     text-align: right;
   }
   .btn-primary {
-    background-color: #c2185b;
-    border-color: #c2185b;
+    background-color: #8a1538;
+    border-color:  #8a1538;
     margin-left: 10px;
   }
   
@@ -40,7 +40,7 @@
   }
   
   .modal-header {
-    background-color: #c2185b;
+    background-color: #8a1538;
     border-color: #757575;
   }
   
@@ -82,7 +82,7 @@
     min-width: 300px;
   }
   
-  @media (max-width: 500px) {
+  @media (max-width: 650px) {
     .modal-content .fila-select {
       flex-direction: column;
       justify-content: center;
@@ -93,7 +93,7 @@
       margin-bottom: 10px;
     }
     .boton-update{
-      margin-right: 10%;
+      margin-right: 50px;
     }
   }
   

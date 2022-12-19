@@ -1,89 +1,70 @@
-import { EnvironmentInjector, Injectable } from '@angular/core';
+import {Injectable } from '@angular/core';
 
 //imports
-import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http'
-import { BehaviorSubject, Observable } from 'rxjs';
+import {
+  HttpClient,
+} from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/app/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
-
 export class LoginService {
-
   //readonly url = 'https://localhost:44335/api/';
   url: string = environment.url;
   dataEnSesion = new BehaviorSubject(null);
 
-  constructor(
-    private http: HttpClient,
-  ) {
+  constructor(private http: HttpClient) {
     this.verificarSesion();
   }
 
-  verificarSesion(){
-    let data=this.obtenerSesion();
+  verificarSesion() {
+    let data = this.obtenerSesion();
     if (data) {
       this.refrescarDatosSession(data);
     }
   }
 
-  refrescarDatosSession(datos:any){
-    this.dataEnSesion.next(datos); 
+  refrescarDatosSession(datos: any) {
+    this.dataEnSesion.next(datos);
   }
 
-  // validaruser(usuario:string, clave:string):Observable<ModelUser>{
-  //   return this.http.post<ModelUser>(`${this.url}/identificarCliente`, {
-  //     usuario:usuario,
-  //     clave:clave
-  //   });
-  // }
-
-
-  // guardarSesion(data:ModelUser){
-  //   data.islogin=true;
-  //   let stringData= JSON.stringify(data);
-  //   sessionStorage.setItem("dataSesion",stringData);
-  //   this.refrescarDatosSession(data);
-  // }
-
-  obtenerSesion(){
-    let data = sessionStorage.getItem("token");
-    if(data){
+  obtenerSesion() {
+    let data = sessionStorage.getItem('token');
+    if (data) {
       //let data=JSON.parse(data);
       return data;
-    }else{
+    } else {
       return null;
     }
   }
 
-  eliminarSesion(){
-    sessionStorage.removeItem("token");
-    this.refrescarDatosSession('');
-  }
-
-  logOut(){
+  eliminarSesion() {
     sessionStorage.removeItem('token');
     this.refrescarDatosSession('');
   }
 
-
-  seInicioSesion(){
-    let dataString = sessionStorage.getItem("token");
-      return dataString ;
+  logOut() {
+    sessionStorage.removeItem('token');
+    this.refrescarDatosSession('');
   }
 
-  obtenerDatosUsuarioEnSesion(){
+  seInicioSesion() {
+    let dataString = sessionStorage.getItem('token');
+    return dataString;
+  }
+
+  obtenerDatosUsuarioEnSesion() {
     return this.dataEnSesion.asObservable();
   }
 
-  obtenerToken(){
-    let data = sessionStorage.getItem("token");
-    if(data){
+  obtenerToken() {
+    let data = sessionStorage.getItem('token');
+    if (data) {
       //let token = JSON.parse(dataString);
       return data;
-    }else{
+    } else {
       return '';
     }
   }
@@ -96,12 +77,7 @@ export class LoginService {
 
   //save token in sessionStorage
   GuardarToken(token: string) {
-    sessionStorage.setItem('token', token)
+    sessionStorage.setItem('token', token);
     this.refrescarDatosSession(token);
   }
-  // //getId
-  // public getId(id: number | string): Observable<any> {
-  //   return this.http.get<any>(this.url + 'usuarios/' + id);
-  // }
-
 }

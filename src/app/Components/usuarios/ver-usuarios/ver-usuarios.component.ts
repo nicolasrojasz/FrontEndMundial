@@ -9,26 +9,20 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-ver-usuarios',
   templateUrl: './ver-usuarios.component.html',
-  styleUrls: ['./ver-usuarios.component.css']
+  styleUrls: ['./ver-usuarios.component.css'],
 })
 export class VerUsuariosComponent implements OnInit {
-
-  ListUsuarios$!: Observable<any[]>
-  
+  ListUsuarios$!: Observable<any[]>;
 
   //modal
   title: string = '';
   modal: boolean = false;
   usuario: any;
 
-
-  constructor( 
-    private servicioUsuario:UsuariosService,
-
-  ) { }
+  constructor(private servicioUsuario: UsuariosService) {}
 
   ngOnInit(): void {
-    this.ListUsuarios$=this.servicioUsuario.get();
+    this.ListUsuarios$ = this.servicioUsuario.get();
     console.log(this.ListUsuarios$);
   }
 
@@ -41,21 +35,21 @@ export class VerUsuariosComponent implements OnInit {
     });
   }
 
-  modalAdd(){
-    this.usuario ={
-      id:0,
-      nombre:null,
-      clave:null,
-      tipo:null
-    }
+  modalAdd() {
+    this.usuario = {
+      id: 0,
+      nombre: null,
+      clave: null,
+      tipo: null,
+    };
     this.title = 'Agregar Usuario';
-    this.modal=true;
+    this.modal = true;
   }
 
   modalEdit(item: any) {
     this.title = 'Editar Usuario';
     this.usuario = item;
-    this.modal = true
+    this.modal = true;
   }
 
   modalclose() {
@@ -63,14 +57,12 @@ export class VerUsuariosComponent implements OnInit {
     this.ListUsuarios$ = this.servicioUsuario.get();
   }
 
-
   delete(item: any) {
     if (confirm(`Esta seguro de eliminar el registro  ${item.id}`)) {
       this.servicioUsuario.delete(item.id).subscribe(() => {
-        this.showAlertDelete()
+        this.showAlertDelete();
         this.ListUsuarios$ = this.servicioUsuario.get();
-      })
+      });
     }
   }
-
 }
